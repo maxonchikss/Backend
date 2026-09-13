@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сортировка слиянием</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+    .array-display { background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 10px 0; }
+    .error { color: red; font-weight: bold; }
+    .sorted { color: green; font-weight: bold; }
+  </style>
+</head>
+<body>
+<h1>Сортировка слиянием</h1>
+
+<div th:if="${error}" class="error">
+  <p th:text="${error}"></p>
+</div>
+
+<div th:if="${originalArray}">
+  <div class="array-display">
+    <strong>Исходный массив:</strong>
+    <p th:text="${originalArray}"></p>
+  </div>
+
+  <div class="array-display">
+    <strong>Отсортированный массив:</strong>
+    <p class="sorted" th:text="${sortedArray}"></p>
+  </div>
+</div>
+
+<form action="/sort" method="get">
+  <label for="array">Введите массив (числа через запятую):</label>
+  <input type="text" id="array" name="array" placeholder="5,2,8,1,9,3" required>
+  <button type="submit">Сортировать</button>
+</form>
+</body>
+</html>
